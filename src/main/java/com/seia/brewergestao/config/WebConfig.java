@@ -1,4 +1,4 @@
-package com.seia.brewergestao.config.init;
+package com.seia.brewergestao.config;
 
 
 import com.seia.brewergestao.Controller.CervejasController;
@@ -19,7 +19,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @Configuration
-@ComponentScan(basePackageClasses = {CervejasController.class})
+@ComponentScan(basePackageClasses = {CervejasController.class}) 
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
 
@@ -54,6 +54,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
         resolver.setSuffix(".html");
         return resolver;
     }
+
 
 
 }
