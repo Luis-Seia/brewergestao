@@ -2,6 +2,7 @@ package com.seia.brewergestao.config;
 
 
 import com.seia.brewergestao.Controller.CervejasController;
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -44,6 +45,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setEnableSpringELCompiler(true);
         engine.setTemplateResolver(templateResolver());
+        engine.addDialect(new LayoutDialect());
         return engine;
     }
 
@@ -58,7 +60,6 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        WebMvcConfigurer.super.addResourceHandlers(registry);
-        registry.addResourceHandler("/**" ).addResourceLocations("classpath/static");
+        registry.addResourceHandler("/**" ).addResourceLocations("classpath:/static/");
     }
 }
